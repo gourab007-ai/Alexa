@@ -1,17 +1,17 @@
 $(document).ready(function () {
     $('.text').textillate({
-loop: true,
-sync: true,
-in:{
-effect: "bounceIn",
+        loop: true,
+        sync: true,
+        in: {
+            effect: "bounceIn",
 
-},
-out:{
-    effect: "bounceOut",
-    
-    },
-    
-    }) 
+        },
+        out: {
+            effect: "bounceOut",
+
+        },
+
+    })
 
     var siriWave = new SiriWave({
         container: document.getElementById("siri-container"),
@@ -22,19 +22,28 @@ out:{
         speed: "0.30",
         autostart: true
 
-      });
-      // siri msg animation
-      $('.siri-message').textillate({
+    });
+    // siri msg animation
+    $('.siri-message').textillate({
         loop: true,
         sync: true,
-        in:{
-        effect: "fadeInUp",
-        sync: true,
+        in: {
+            effect: "fadeInUp",
+            sync: true,
         },
-        out:{
+        out: {
             effect: "fadeOutUp",
             sync: true,
-            },
-        }) 
+        },
+    });
+    // mic button click
+
+
+    $("#MicBtn").click(function () {
+        eel.playAssistantSound()
+        $("#oval").attr("hidden", true);
+        $("#siriwave").attr("hidden", false);
+
+    });
 
 });
