@@ -10,11 +10,10 @@ $(document).ready(function () {
         $('.siri-message').textillate('start');
     }
 
-   // Display hood
-   eel.expose(ShowHood)
-   function ShowHood() {
-       $("#Oval").attr("hidden", false);
-       $("#SiriWave").attr("hidden", true);
-   }
-
+    // Display Hood
+    eel.expose(showHood)
+    function showHood() {
+        $("#oval").attr("hidden", false);
+        $("#siriwave").attr("hidden", true);
+    }
 });
