@@ -46,4 +46,18 @@ $(document).ready(function () {
         eel.allCommands()()
     });
 
-});
+    
+        function doc_keyUp(e) {
+            // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
+    
+            if (e.key === 'c' && e.metaKey) {
+                eel.playAssistantSound()
+                $("#oval").attr("hidden", true);
+                $("#siriwave").attr("hidden", false);
+                eel.allCommands()()
+            }
+        }
+        document.addEventListener('keyup', doc_keyUp, true);
+    });
+    
+    
