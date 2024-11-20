@@ -2,14 +2,16 @@ import pyttsx3
 import speech_recognition as sr
 import eel
 import time
-
+import engine.features
 def speak(text):
+    text = str(text)
     engine = pyttsx3.init('sapi5')
     voices = engine.getProperty('voices')
     engine.setProperty('voice', voices[1].id)
     engine.setProperty('rate', 174)
     eel.DisplayMessage(text)
     engine.say(text)
+    eel.receiverText(text)
     engine.runAndWait()
 
 
@@ -39,11 +41,11 @@ def allCommands(message=1):
     if message == 1:
        query = takecommand()
        print(query)
-
+       eel.senderText(query)
     else: 
 
-        query = message
-           
+       query = message
+       eel.senderText(query)
     try:
         
         if "open" in query:
@@ -70,7 +72,9 @@ def allCommands(message=1):
                     
                 whatsApp(contact_no, query, message, name)
         else:
-            print("not")
+            from engine.features import chatBot
+            chatBot(query)
+    
     except:
         print("error")
 
